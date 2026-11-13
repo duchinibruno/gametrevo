@@ -6,12 +6,15 @@ echo              PARAR SERVIDOR GAMETREVO
 echo ======================================================
 echo.
 
-echo Procurando processos escutando na porta 3000...
-for /f "tokens=5" %%a in ('netstat -aon ^| findstr ":3000" ^| findstr "LISTENING"') do (
+:: Definir porta (padrao 3030)
+if "%PORT%"=="" set PORT=3030
+
+echo Procurando processos escutando na porta %PORT%...
+for /f "tokens=5" %%a in ('netstat -aon ^| findstr ":%PORT%" ^| findstr "LISTENING"') do (
     echo Encerrando processo PID: %%a
     taskkill /F /PID %%a >nul 2>&1
 )
 
 echo.
-echo [INFO] Servidor finalizado (se estava em execucao).
+echo [INFO] Servidor parado (se estava em execucao na porta %PORT%).
 timeout /t 3 >nul

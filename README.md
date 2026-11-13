@@ -117,9 +117,9 @@ GameTrevo/
    - O GameTrevo será registrado na pasta de Inicialização do Windows (`shell:startup`) e rodará silenciosamente em segundo plano sempre que o computador ligar.
 
 3. **Arquivos de controle inclusos:**
-   - [`iniciar.bat`](./iniciar.bat): Inicia o servidor manualmente exibindo o terminal.
+   - [`iniciar.bat`](./iniciar.bat): Inicia o servidor manualmente exibindo o terminal (Porta `3030`).
    - [`iniciar_segundo_plano.vbs`](./iniciar_segundo_plano.vbs): Inicia o servidor silenciosamente sem janela preta.
-   - [`parar.bat`](./parar.bat): Encerra o servidor na porta 3000.
+   - [`parar.bat`](./parar.bat): Encerra o servidor na porta 3030.
    - [`atualizar.bat`](./atualizar.bat): Puxa novas atualizações do git e atualiza dependências.
    - [`remover_inicializacao.bat`](./remover_inicializacao.bat): Desativa a inicialização automática do Windows.
 
@@ -156,7 +156,7 @@ Acesse o **SQL Editor** do seu painel Supabase e execute o conteúdo contido em:
 npm run dev
 ```
 
-Acesse `http://localhost:3000` no seu navegador.
+Acesse `http://localhost:3030` no seu navegador.
 
 ---
 

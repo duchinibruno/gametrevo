@@ -8,6 +8,9 @@ echo.
 
 cd /d "%~dp0"
 
+:: Definir porta (padrao 3030 para evitar conflitos com porta 3000)
+if "%PORT%"=="" set PORT=3030
+
 :: Verificar se Node.js esta instalado
 where node >nul 2>nul
 if %errorlevel% neq 0 (
@@ -37,8 +40,8 @@ if not exist ".env.local" (
     )
 )
 
-echo [INFO] Iniciando servidor Next.js em http://localhost:3000 ...
+echo [INFO] Iniciando servidor Next.js em http://localhost:%PORT% ...
 echo Pressione Ctrl+C para encerrar o servidor.
 echo.
 
-npm run dev
+call npm run dev -- -p %PORT%
