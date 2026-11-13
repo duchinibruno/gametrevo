@@ -16,12 +16,13 @@ echo Criando atalho na pasta de inicializacao do Windows...
 echo Destino: %SHORTCUT%
 echo.
 
-powershell -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%SHORTCUT%'); $s.TargetPath = 'wscript.exe'; $s.Arguments = '\"%TARGET_SCRIPT%\"'; $s.WorkingDirectory = '%~dp0'; $s.Description = 'Inicializacao Automatica GameTrevo'; $s.Save()"
+powershell -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%SHORTCUT%'); $s.TargetPath = 'wscript.exe'; $s.Arguments = ([char]34 + '%TARGET_SCRIPT%' + [char]34); $s.WorkingDirectory = '%~dp0'; $s.Description = 'GameTrevo NextJS AutoStart'; $s.Save()"
 
 if %errorlevel% equ 0 (
     echo ======================================================
     echo [SUCESSO] Inicializacao configurada com sucesso!
     echo O GameTrevo iniciara automaticamente ao ligar o PC.
+    echo Porta configurada: 3030 (http://localhost:3030)
     echo ======================================================
 ) else (
     echo [ERRO] Nao foi possivel criar o atalho de inicializacao.
