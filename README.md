@@ -102,18 +102,43 @@ GameTrevo/
 
 ## 🔧 Como Executar Localmente
 
-### 1. Clonar o repositório:
+### 🪟 No Windows (em `C:\repositorios` e Iniciar com o PC):
+
+1. **Abra o Prompt de Comando (CMD) ou PowerShell como Administrador e execute:**
+   ```cmd
+   mkdir C:\repositorios
+   cd /d C:\repositorios
+   git clone https://github.com/duchinibruno/gametrevo.git
+   cd gametrevo
+   ```
+
+2. **Configurar para iniciar automaticamente com o PC:**
+   - Dê um duplo clique no arquivo [`configurar_inicializacao.bat`](./configurar_inicializacao.bat).
+   - O GameTrevo será registrado na pasta de Inicialização do Windows (`shell:startup`) e rodará silenciosamente em segundo plano sempre que o computador ligar.
+
+3. **Arquivos de controle inclusos:**
+   - [`iniciar.bat`](./iniciar.bat): Inicia o servidor manualmente exibindo o terminal.
+   - [`iniciar_segundo_plano.vbs`](./iniciar_segundo_plano.vbs): Inicia o servidor silenciosamente sem janela preta.
+   - [`parar.bat`](./parar.bat): Encerra o servidor na porta 3000.
+   - [`atualizar.bat`](./atualizar.bat): Puxa novas atualizações do git e atualiza dependências.
+   - [`remover_inicializacao.bat`](./remover_inicializacao.bat): Desativa a inicialização automática do Windows.
+
+---
+
+### 💻 Execução Manual Padrão:
+
+#### 1. Clonar o repositório:
 ```bash
 git clone https://github.com/duchinibruno/gametrevo.git
 cd gametrevo
 ```
 
-### 2. Instalar as dependências:
+#### 2. Instalar as dependências:
 ```bash
 npm install
 ```
 
-### 3. Configurar as variáveis de ambiente:
+#### 3. Configurar as variáveis de ambiente:
 Crie um arquivo `.env.local` na raiz do projeto com base no `.env.example`:
 ```env
 NEXT_PUBLIC_SUPABASE_URL=https://seu-projeto.supabase.co
@@ -122,11 +147,11 @@ SUPABASE_SERVICE_ROLE_KEY=sua-chave-service-role
 GEMINI_API_KEY=sua-chave-google-gemini
 ```
 
-### 4. Executar o schema no Supabase:
+#### 4. Executar o schema no Supabase:
 Acesse o **SQL Editor** do seu painel Supabase e execute o conteúdo contido em:
 👉 [`supabase/schema.sql`](./supabase/schema.sql)
 
-### 5. Iniciar o servidor de desenvolvimento:
+#### 5. Iniciar o servidor de desenvolvimento:
 ```bash
 npm run dev
 ```
